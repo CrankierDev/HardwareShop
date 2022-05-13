@@ -1,0 +1,102 @@
+
+section{
+    display: flex;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+section article{
+    flex: 100%;
+    padding: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 2%;
+}
+
+section article div{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.2s ease;
+    text-align: center;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+}
+
+section article div{
+    margin: 1%;
+}
+
+section article img{
+    max-height: 200px;
+    max-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+section article h4, section article p{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+section article h2, section article h3{
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+section button{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.2s ease;
+    background-color: white;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    flex: 100%;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+section button:hover{
+    box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
+}
+
+.right-col{
+    flex: 40%;
+    width: 40%;
+    margin: 0;
+    float: right;
+}
+
+.left-col{
+    flex: 58%;
+    width: 58%;
+    height: auto;
+    margin: 0;
+    float: left;
+}
+
+.info{
+    background-color: white;
+}
+
+.actual-price{
+    color: red;
+    font-weight: bold;
+}

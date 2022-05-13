@@ -1,0 +1,106 @@
+
+
+html {
+    font-family: 'Outfit', sans-serif;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*----------------------------------------- HEADER ---------------------------------------*/
+
+
+header{
+    background: cadetblue;
+    height: 80px;
+    width: 100%;
+    position: relative;
+}
+
+header a{
+    text-decoration: none;
+    background-color: oldlace;
+    flex: 60%;
+}
+
+header a h1 {
+    color: black;
+    text-align: right;
+    padding: 0.5%;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+header p, header h2{
+    position: absolute;
+    bottom: 0;
+    left: 85px;
+    margin: 0;
+}
+
+.menu-button{
+    float: left;
+    height: 78px;
+    width: 78px;
+}
+
+.head-button{
+    color: black;
+    text-align: center;
+}
+
+.signup-button {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 21%;
+    margin: 5px;
+    padding: 2px;
+    height: 25px;
+    width: 20%;
+}
+
+.signin-button{
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    padding: 2px;
+    height: 25px;
+    width: 20%;
+}
+
+.buttons-margin{
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+/*----------------------------------------- FOOTER ---------------------------------------*/
+
+footer{
+    background-color: cadetblue;
+    padding: 1%;
+    color: white;
+}
+
+footer p{
+    margin: 0;
+}
+
+footer a{
+    float: right;
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: lemonchiffon;
+}

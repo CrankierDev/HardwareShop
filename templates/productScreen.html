@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crankier Hardware</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/products.css">
+    <link rel="stylesheet" href="/static/header-footer.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="menu-button buttons-margin" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="75" fill="black"
+                class="bi bi-list" viewBox="-1 0 17 15">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg>
+        </a>
+        <a href="/{{key}}/{{user.nif}}"><h1>Crankier Hardware</h1></a>
+        <a class="signup-button buttons-margin head-button user" href="/{{key}}/{{user.nif}}"> Usuario </a>
+        {% if key == "supplier" %}
+            <a class="signin-button buttons-margin head-button" href="/newProduct/{{user.nif}}">Añadir producto</a>
+        {% endif %}
+        {% if key == "customer" %}
+            <a class="signin-button buttons-margin head-button" href="/ShoppingCart/{{user.nif}}">Cesta</a>
+        {% endif %}
+    </header>
+
+    <section class="container">
+        <article class="img-art">
+            <img src="{{product.imgRoute}}" />
+        </article>
+        <article class="info-art">
+            <h1 class="margins">{{product.name}}
+                {% if product.quantity <= 0 %}
+                    <span class="sold-out"> - AGOTADO </span>
+                {% endif %}
+            </h1>
+            <p class="actual-price margins"> {{round(product.price,2)}}€
+                        {% if product.offer == True %}
+                            <span class="first-price "> {{round(product.priceOrig,2)}}€ </span>
+                        {% endif %}
+            </p>
+            <h3 class="margins">Descripcion</h3>
+            <p class="margins">
+                {{product.description}}
+            </p>
+            {% if key == "customer" %}
+                <a class="button-addCart buttons-margin head-button" href="/addToCart/{{user.nif}}/{{product.name}}">Añadir al carrito</a>
+            {% endif %}
+            {% if key == "supplier" %}
+                <h3 class="margins">Enviar inventario</h3>
+                <form action="/addQuantity/{{user.nif}}/{{product.name}}" method="post">
+                    <label class="margins">Cantidad a añadir:</label>
+                    <input name="addQuantity-{{product.name}}" type="text" placeholder="Cantidad" autofocus required>
+                    <button class="buttons-margin head-button button-add" type="submit">Confirmar envío</button>
+                </form>
+                <a class="buttons-margin head-button button-edit" href="/editProduct/{{user.nif}}/{{product.name}}">Editar producto</a>
+            {% endif %}
+        </article>
+    </section>
+
+
+    <footer>
+        <section>
+            <a href="mailto:example@example.com"> Mail </a>
+        </section>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</html>

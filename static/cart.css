@@ -1,0 +1,140 @@
+
+main h1{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+section{
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+section .button-container{
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.button-container{
+    width: 90%;
+}
+
+.buttons{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.2s ease;
+    text-align: center;
+    flex: 50%
+    width: 96%;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.pay{
+    font-family: 'Outfit', sans-serif;
+    margin-left: 2px;
+}
+
+.follow{
+    margin-right: 2px;
+}
+
+section a, section article, section button{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.2s ease;
+    text-align: center;
+    flex: 100%;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    padding: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+main a:hover, section button:hover{
+    box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
+}
+
+section img{
+    background-color: white;
+    object-fit: fill;
+    max-height: 200px;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+}
+
+.img-art{
+    background-color: white;
+    flex: 40%;
+    width: 40%;
+    height: auto;
+    margin: 0;
+    float: left;
+}
+
+section article img{
+    object-fit: fill;
+    max-height: 200px;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section h2{
+    margin-top: 0%;
+    margin-bottom: 1%;
+}
+
+section h3{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.info-art, .delete-div{
+    text-align: center;
+    flex: 55%;
+    width: 50%;
+    max-height: 200px;
+    float: right;
+    padding: 2%;
+}
+
+.actual-price{
+    color: red;
+    font-weight: bold;
+}
+
+.first-price{
+    color: grey;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.delete-button{
+    position: relative;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    padding: 1%;
+}

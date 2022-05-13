@@ -1,0 +1,4 @@
+offer:
+False
+offerQuantity:
+0

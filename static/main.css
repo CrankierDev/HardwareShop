@@ -1,0 +1,62 @@
+
+/*------------------------- CARD IMAGES AND INFO FOR MAIN SCREEN --------------------------*/
+
+.container{
+    margin: 1% 0 1% 0;
+    display: flex;
+}
+
+section a{
+    color: black;
+    vertical-align: middle;
+    transition: box-shadow 0.2s ease;
+    flex: 45%;
+    max-width: 98%;
+    height: 250px;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    text-align: justify;
+    padding: 1%;
+    margin: 0 1% 0 1%;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+section a:hover{
+    box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
+}
+
+.card-image{
+    object-fit: fill;
+    max-height: 200px;
+    display: block;
+    margin: auto;
+}
+
+.card-margin{
+    margin-bottom: 1%;
+    margin-top: 0;
+}
+
+.card-title{
+    color: black;
+}
+
+.card-price{
+    color: red;
+}
+
+.card-price-orig{
+    color: grey;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+.sold-out{
+    color: red;
+    font-weight: bold;
+}

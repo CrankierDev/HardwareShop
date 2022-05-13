@@ -1,0 +1,32 @@
+
+main{
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+main a{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.2s ease;
+    text-align: center;
+    flex: 40%;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    padding: 2%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+main a:hover{
+    box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
+}
+
+
+main a h1{
+    margin: 0;
+}

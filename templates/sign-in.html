@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>Crankier Hardware</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/header-footer.css">
+    <link rel="stylesheet" href="/static/sign.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="menu-button buttons-margin" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="75" fill="black"
+                class="bi bi-list" viewBox="-1 0 17 15">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg>
+        </a>
+        <a><h1>Bienvenid@ a Crankier Hardware</h1></a>
+        <p><h2>
+            {% if user == 'customer' %} Acceso clientes {% endif %}
+            {% if user == 'supplier' %} Acceso proveedores {% endif %}
+        </h2></p>
+    </header>
+
+    <main>
+        <form action="/signed-in/{{user}}/{{attempt}}" method="post">
+            {% if attempt != '0' %}
+                <p class="warning">El usuario y/o la contraseña introducidos no son correctos</p>
+            {% endif %}
+            <div class="">
+                <input type="text" name="userMail" placeholder="e-mail" class="vertical" autofocus>
+            </div>
+            <div class="">
+                <input type="password" name="userPassword" placeholder="Contraseña" class="vertical" autofocus >
+            </div>
+            <button type="submit" class="vertical" >
+                Entrar
+            </button>
+            <a href="/sign-up/{{user}}/0">
+                <h3>Registrar nuevo usuario</h3>
+            </a>
+        </form>
+    </main>
+
+    <footer>
+        <p>
+            <a href="mailto:example@example.com"> Mail </a>
+        </p>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</html>

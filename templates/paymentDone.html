@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Crankier Hardware</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/header-footer.css">
+    <link rel="stylesheet" href="/static/paymentDone.css">
+    <link rel="stylesheet" href="/static/products.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a><h1>Crankier Hardware</h1></a>
+    </header>
+
+    <main>
+        <h1>
+            GRACIAS POR COMPRAR EN CRANKIER HARDWARE.<br>
+            VUELVA PRONTO, ¡LE ESPERAMOS!
+        </h1>
+        <h4>Pulse para ser redireccionado a la plataforma para realizar el pago mediante el método seleccionado
+            {% if payMethod == 'CC' %} (Tarjeta de crédito).{% endif %}
+            {% if payMethod == 'PP' %} (PayPal).{% endif %}
+            {% if payMethod == 'PA' %} (Pago aplazado).{% endif %}
+        </h4>
+        <div class="container">
+            <a class="button-addCart buttons-margin head-button" href="/customer/{{customer.nif}}">Ir a la plataforma de pago</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <a href="mailto:example@example.com"> Mail </a>
+        </p>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</html>

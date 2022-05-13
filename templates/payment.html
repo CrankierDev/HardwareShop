@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <title>Crankier Hardware</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/header-footer.css">
+    <link rel="stylesheet" href="/static/payment.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="menu-button buttons-margin" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="75" fill="black"
+                class="bi bi-list" viewBox="-1 0 17 15">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg>
+        </a>
+        <a href="/customers/{{customer.nif}}"><h1>Crankier Hardware</h1></a>
+        <a class="signup-button buttons-margin head-button user" href="/customers/{{customer.nif}}"> Usuario </a>
+        <a class="signin-button buttons-margin head-button" href="/ShoppingCart/{{customer.nif}}">Cesta</a>
+    </header>
+
+    <main>
+        <section >
+            <article>
+                <div class="left-col">
+                    <h2>Datos del comprador</h2>
+                    <div class="info">
+                        <h4>Nombre: {{customer.name}}</h4>
+                        <h4>Apellidos: {{customer.surname}}</h4>
+                        <h4>DNI: {{customer.nif}}</h4>
+                        <h4>e-mail: {{customer.mail}}</h4>
+                        <h4>Teléfono: {{customer.phone}}</h4>
+                    </div>
+
+                    <h2>Dirección de envío</h2>
+                    <div class="info">
+                        <h4>Dirección: {{customer.address}}</h4>
+                        <h4>Código postal: {{customer.cp}}</h4>
+                        <h4>Ciudad: {{customer.city}}</h4>
+                    </div>
+
+                    <h2>Método de pago</h2>
+                    <form action="/paymentDone/{{customer.nif}}" method="post">
+                        <div class="info"><br>
+                            <input type="Radio" name="payment" value="CC" checked>Tarjeta de crédito <br> <br>
+                            <input type="Radio" name="payment" value="PP">PayPal <br> <br>
+                            <input type="Radio" name="payment" value="PA">Pago aplazado <br> <br>
+                        </div>
+                        <button class="payment-button" type="submit"> Pagar </button>
+                    </form>
+                </div>
+                <div class="right-col">
+                    <h2>Resumen del pedido</h2>
+                    <h3>Importe total: <span class="actual-price">{{round(totalAmount,2)}}€</span></h3>
+                    {% if products != [] %}
+                    {% for product in products %}
+                        <div class="info">
+                            <img src="{{product['ProductName'].imgRoute}}" />
+                            <h4 class="">{{product['ProductName'].name}}</h4>
+                            <p class=""> Cantidad: {{product['Quantity']}} </p>
+                            <p class="actual-price">{{round(product['ProductName'].price*product['Quantity'],2)}}€ </p>
+                        </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="mailto:example@example.com"> Mail </a>
+        </p>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</html>

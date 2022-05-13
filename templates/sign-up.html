@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <title>Crankier Hardware</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/header-footer.css">
+    <link rel="stylesheet" href="/static/sign.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="menu-button buttons-margin" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="75" fill="black"
+                class="bi bi-list" viewBox="-1 0 17 15">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg>
+        </a>
+        <a><h1>Bienvenid@ a Crankier Hardware</h1></a>
+        <p><h2>
+            {% if user == 'customer' %} Registro de clientes {% endif %}
+            {% if user == 'supplier' %} Registro de proveedores {% endif %}
+        </h2></p>
+    </header>
+
+    <main>
+        <form action="/signed-up/{{user}}/{{attempt}}" method="post">
+            {% if attempt != '0' %}
+                <p class="warning">Los e-mails y/o las contraseñas introducid@s no coinciden</p>
+            {% endif %}
+            <label>Usuario:</label>
+            <div class="">
+                <input type="text" name="name" placeholder="Nombre" autofocus required class="vertical">
+            </div>
+            {% if user == 'customer' %}
+            <div class="">
+                <input type="text" name="surname" placeholder="Apellidos" class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="text" name="nif" placeholder="DNI" class="vertical" autofocus required>
+            </div>
+            {% endif %}
+            {% if user == 'supplier' %}
+            <div class="">
+                <input type="text" name="nif" placeholder="CIF" class="vertical" autofocus required>
+            </div>
+            {% endif %}
+
+            <label>Domicilio:</label>
+
+            <div class="">
+                <input type="text" name="address" placeholder="Dirección" class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="text" name="cp" placeholder="C.P." class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="text" name="city" placeholder="Localidad" class="vertical" autofocus required>
+            </div>
+
+            <label>Contacto:</label>
+
+            <div class="">
+                <input type="text" name="phone" placeholder="Teléfono" class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="email" name="email" placeholder="e-mail" class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="password" name="password" placeholder="Contraseña" class="vertical" autofocus required>
+            </div>
+
+            <label>Confirmación del registro:</label>
+
+            <div class="">
+                <input type="email" name="emailRepeat" placeholder="Confirme el e-mail" class="vertical" autofocus required>
+            </div>
+            <div class="">
+                <input type="password" name="passwordRepeat" placeholder="Confirme la contraseña" class="vertical" autofocus required>
+            </div>
+
+            <button type="submit" class="vertical" > <!-- btn-block hace que el boton ocupe todo el ancho -->
+                Registrar usuario
+            </button>
+        </form>
+    </main>
+
+    <footer>
+        <p>
+            <a href="mailto:example@example.com"> Mail </a>
+        </p>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</html>
