@@ -19,8 +19,8 @@
                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
             </svg>
         </a>
-        <a href="/{{key}}/{{user.nif}}"><h1>Crankier Hardware</h1></a>
-        <a class="signup-button buttons-margin head-button user" href="/{{key}}/{{user.nif}}"> Usuario </a>
+        <h1>Crankier Hardware</h1>
+        <a class="signup-button buttons-margin head-button user" href="/{{key}}/{{user.nif}}"> Inicio </a>
         {% if key == "supplier" %}
             <a class="signin-button buttons-margin head-button" href="/newProduct/{{user.nif}}">Añadir producto</a>
         {% endif %}
@@ -29,27 +29,41 @@
         {% endif %}
     </header>
 
+    {% if products == [] %}
+        <div class="container">
+            <a class="a-container" href="/newProduct/{{user.nif}}">
+                <h3 class="card-title card-margin">Aun no tiene productos en nuestra tienda. ¡Añada un producto ahora!</h3>
+            </a>
+        </div>
+    {% endif %}
+
     {% for i, product in enumerate(products): %}
         {% if i%2 == 0 %}
-        <section class="container">
+            <section class="container">
         {% endif %}
 
-                <a href="/{{key}}/{{user.nif}}/{{product.name}}">
-                    <img class="card-image" src="{{product.imgRoute}}"/>
-                    <h4 class="card-title card-margin">{{product.name}}
-                        {% if product.quantity <= 0 %}
-                            <span class="sold-out"> - AGOTADO </span>
-                        {% endif %}
-                    </h4>
-                    <p class="card-price card-margin"> {{round(product.price,2)}}€
-                        {% if product.offer == True %}
-                            <span class="card-price-orig"> {{round(product.priceOrig,2)}}€ </span>
-                        {% endif %}
-                    </p>
-                </a>
+            <a href="/{{key}}/{{user.nif}}/{{product.name}}">
+                <img class="card-image" src="{{product.imgRoute}}"/>
+                <h4 class="card-title card-margin">{{product.name}}
+                    {% if product.quantity <= 0 %}
+                        <span class="sold-out"> - AGOTADO </span>
+                    {% endif %}
+                    {% if (product.stock <= 30) and (key == "customer") and (product.quantity > 0) %}
+                        <span class="sold-out"> - ULTIMAS UNIDADES </span>
+                    {% endif %}
+                    {% if (product.stock <= 90)  and (key == "supplier") and (product.quantity > 0) %}
+                        <span class="sold-out"> - STOCK AL {{round(product.stock)}}% </span>
+                    {% endif %}
+                </h4>
+                <p class="card-price card-margin"> {{round(product.price,2)}}€
+                    {% if product.offer == True %}
+                        <span class="card-price-orig"> {{round(product.priceOrig,2)}}€ </span>
+                    {% endif %}
+                </p>
+            </a>
 
         {% if (i%2 != 0) or (i == len(products)-1) %}
-        </section>
+            </section>
         {% endif %}
     {% endfor %}
 
@@ -57,7 +71,7 @@
         <p>
             <a href="mailto:example@example.com"> Mail </a>
         </p>
-        <p>Copyright 2021</p>
+        <p>Copyright 2022</p>
     </footer>
 </body>
 </html>

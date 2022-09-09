@@ -1,4 +1,4 @@
 offer:
-True
+False
 offerQuantity(%):
-12
+0

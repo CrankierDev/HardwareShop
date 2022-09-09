@@ -20,8 +20,8 @@
                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
             </svg>
         </a>
-        <a href="/{{key}}/{{user.nif}}"><h1>Crankier Hardware</h1></a>
-        <a class="signup-button buttons-margin head-button user" href="/{{key}}/{{user.nif}}"> Usuario </a>
+        <h1>Crankier Hardware</h1>
+        <a class="signup-button buttons-margin head-button user" href="/{{key}}/{{user.nif}}"> Inicio </a>
         {% if key == "supplier" %}
             <a class="signin-button buttons-margin head-button" href="/newProduct/{{user.nif}}">Añadir producto</a>
         {% endif %}
@@ -61,6 +61,26 @@
                 </form>
                 <a class="buttons-margin head-button button-edit" href="/editProduct/{{user.nif}}/{{product.name}}">Editar producto</a>
             {% endif %}
+            {% if key == "customer" %}
+                <p class="margins">
+                    {% if product.soldQuantity == 1 %}
+                        ¡Desde que se este producto se vende en nuestra web, se ha vendido {{product.soldQuantity}} unidad!
+                    {% endif %}
+                    {% if product.soldQuantity > 1 %}
+                        ¡Desde que se este producto se vende en nuestra web, se han vendido {{product.soldQuantity}} unidades!
+                    {% endif %}
+                </p>
+            {% endif %}
+            {% if key == "supplier" %}
+                <p class="margins">
+                    {% if product.soldQuantity == 1 %}
+                        Desde que se este producto se vende en nuestra web, se ha vendido {{product.soldQuantity}} unidad y se han comprado {{product.boughtQuantity}} unidades
+                    {% endif %}
+                    {% if product.soldQuantity > 1 %}
+                        Desde que se este producto se vende en nuestra web, se han vendido {{product.soldQuantity}} unidades y se han comprado {{product.boughtQuantity}} unidades
+                    {% endif %}
+                </p>
+            {% endif %}
         </article>
     </section>
 
@@ -69,7 +89,7 @@
         <section>
             <a href="mailto:example@example.com"> Mail </a>
         </section>
-        <p>Copyright 2021</p>
+        <p>Copyright 2022</p>
     </footer>
 </body>
 </html>

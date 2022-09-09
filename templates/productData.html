@@ -4,6 +4,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/static/header-footer.css">
     <link rel="stylesheet" href="/static/sign.css">
+    <link rel="stylesheet" href="/static/products.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,17 +20,17 @@
                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
             </svg>
         </a>
-        <a href="/supplier/{{supplier.nif}}"><h1>Crankier Hardware</h1></a>
-        <a class="signin-button buttons-margin head-button" href="/supplier/{{supplier.nif}}"> Usuario </a>
+        <h1>Crankier Hardware</h1>
+        <a class="signin-button buttons-margin head-button" href="/supplier/{{supplier.nif}}"> Inicio </a>
     </header>
 
     <main>
         <section>
-            <form {% if attempt != 'edit' %} action="/createNewProduct/{{supplier.nif}}/{{attempt}}" {% endif %}
-                  {% if attempt == 'edit' %} action="/editedProduct/{{supplier.nif}}/{{product.name}}" {% endif %}
+            <form {% if attempt != "edit" %} action="/createNewProduct/{{supplier.nif}}/{{attempt}}" {% endif %}
+                  {% if attempt == "edit" %} action="/editedProduct/{{supplier.nif}}/{{product.name}}" {% endif %}
                   method="post" enctype="multipart/form-data">
                 {% if attempt == 'edit' %}
-                    <p class="warning">Rellene los campos a editar</p>
+                    <p class="advert">Rellene solo los campos que desea editar</p>
                 {% endif %}
                 <label>Información del producto</label>
                 <div class="">
@@ -79,7 +80,7 @@
         <p>
             <a href="mailto:example@example.com"> Mail </a>
         </p>
-        <p>Copyright 2021</p>
+        <p>Copyright 2022</p>
     </footer>
 </body>
 </html>

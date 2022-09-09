@@ -14,6 +14,8 @@ class Product(db.Base):
     imgRoute = Column(String(300), nullable=False)
     quantity = Column(Integer, nullable=False)
     maximumQuantity = Column(Integer, nullable=False)
+    soldQuantity = Column(Integer, nullable=False)
+    boughtQuantity = Column(Integer, nullable=False)
     stock = Column(Float, nullable=False)
     brand = Column(String(100), nullable=False)
     offer = Column(Boolean, nullable=False)
@@ -30,6 +32,8 @@ class Product(db.Base):
         self.imgRoute = imgRoute
         self.quantity = quantity
         self.maximumQuantity = maximumQuantity
+        self.soldQuantity = 0
+        self.boughtQuantity = maximumQuantity
         self.stock = (quantity/maximumQuantity)*100
         self.brand = brand
         self.offer = offer

@@ -1,7 +1,7 @@
 name: 
 INTEL CORE I7 - 10700F
 PVP:
-520
+550.0
 description: 
 Procesador Intel de decima generacion ideal para el gaming y streaming.
 category:

@@ -51,13 +51,26 @@ def createCart(customer):
 # Adds products to customers carts
 def addNewProduct(customer, name, quantity=1):
     createCart(customer)
+    productInList = False
 
-    file = open(customer.shoppingCart, "a")
-    writer = csv.writer(file)
-    writer.writerow([name, quantity])
+    file = open(customer.shoppingCart, "r")
+    reader = csv.DictReader(file)
 
-    del writer
+    for row in reader:
+        if row['ProductName'] == name:
+            productInList = True
+            break
+
+    del reader
     file.close()
+
+    if not productInList:
+        file = open(customer.shoppingCart, "a")
+        writer = csv.writer(file)
+        writer.writerow([name, quantity])
+
+        del writer
+        file.close()
 
 
 # Exports CSV info to a variable
@@ -138,6 +151,7 @@ def stockController(key, product, maxQuantity):
     if key == 'customer':
         product['ProductName'].quantity -= int(product['Quantity'])
         product['ProductName'].stock = (product['ProductName'].quantity / maxQuantity) * 100
+        product['ProductName'].soldQuantity += int(product['Quantity'])
 
         if product['ProductName'].quantity < 0:
             product['ProductName'].quantity = 0

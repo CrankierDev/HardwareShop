@@ -16,7 +16,7 @@ def infoProducts(path):
     fileName = 'README.txt'
     pathTXT = path + '/' + fileName
 
-    file = open(pathTXT, 'r', encoding="utf-8")
+    file = open(pathTXT, 'r', encoding="latin-1")
     info = {}
 
     file.seek(0)
@@ -68,7 +68,7 @@ def infoOffers(path):
     fileName = 'OFFER.txt'
     pathTXT = path + '/' + fileName
 
-    file = open(pathTXT, 'r', encoding="utf-8")
+    file = open(pathTXT, 'r', encoding="latin-1")
     offer = {}
 
     file.seek(0)

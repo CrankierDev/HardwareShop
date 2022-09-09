@@ -186,17 +186,25 @@ def addStock(nif, prodName):
     selectedProduct = finder('product', prodName)
     supplier = finder('supplier', nif)
 
-    if selectedProduct.quantity != seletedProduct.maximumQuantity:
+    if selectedProduct.quantity < selectedProduct.maximumQuantity:
         quantityAdded = int(request.form['addQuantity-' + selectedProduct.name])
-        selectedProduct.quantity += quantityAdded
-        selectedProduct.stock = (selectedProduct.quantity/selectedProduct.maximumQuantity)*100
+
+        if (quantityAdded + selectedProduct.quantity) < selectedProduct.maximumQuantity:
+            selectedProduct.quantity += quantityAdded
+            selectedProduct.boughtQuantity += quantityAdded
+            selectedProduct.stock = (selectedProduct.quantity/selectedProduct.maximumQuantity)*100
+
+        else:
+            maxAdding = selectedProduct.maximumQuantity - selectedProduct.quantity
+            selectedProduct.quantity = selectedProduct.maximumQuantity
+            selectedProduct.boughtQuantity += maxAdding
+            selectedProduct.stock = (selectedProduct.quantity/selectedProduct.maximumQuantity)*100
 
         return redirect(url_for('logged', key='supplier', nif=supplier.nif))
 
     else:
-        maxAdding = seletedProduct.maximumQuantity - selectedProduct.quantity
+        return redirect(url_for('logged', key='supplier', nif=supplier.nif))
 
-        return redirect(url_for('editProduct', nif=supplier.nif, prodName=selectedProduct.name, attempt='maxExceeded'))
 
 '''
     This section is the one where shopping cart is managed. The screens related with

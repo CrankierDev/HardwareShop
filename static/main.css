@@ -22,11 +22,34 @@ section a{
     text-align: justify;
     padding: 1%;
     margin: 0 1% 0 1%;
-    cursor: pointer;
+    cursor: default;
     text-decoration: none;
 }
 
 section a:hover{
+    box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
+}
+
+.a-container{
+    color: black;
+    vertical-align: middle;
+    transition: box-shadow 0.2s ease;
+    flex: 45%;
+    max-width: 98%;
+    background-color: oldlace;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px 5px;
+    border-width: 2px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1%;
+    margin: 0 1% 0 1%;
+    cursor: default;
+    text-decoration: none;
+}
+
+.a-container:hover{
     box-shadow: 0.3rem 0.2rem rgba(0,0,0,0.3)
 }
 

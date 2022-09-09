@@ -27,7 +27,7 @@ header a{
     flex: 60%;
 }
 
-header a h1 {
+header h1 {
     color: black;
     text-align: right;
     padding: 0.5%;
@@ -51,6 +51,7 @@ header p, header h2{
 .head-button{
     color: black;
     text-align: center;
+    font-weight: bold;
 }
 
 .signup-button {
